@@ -1,0 +1,10 @@
+.tmp
+.DS_Store
+node_modules
+bower_components
+_site
+.vagrant
+report.xml
+.sass-cache
+.idea
+

@@ -1,0 +1,41 @@
+{
+  "name": "USPTOPatternLibrary",
+  "version": "1.4.2",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nicholas-b-carter/usptostrap-sass-gulp.git"
+  },
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "jquery.inputmask": "~3.1.26",
+    "font-awesome": "~4.2.0",
+    "bootstrap-sass": "^3.3.6",
+    "select2": "~3.5.1",
+    "nouislider": "~7.0.10",
+    "bootstrap-timepicker": "^0.5.2"
+  },
+  "main": [
+    "usptostrap/sass/usptostrap.scss"
+  ],
+  "ignore": [
+    "**/.*",
+    "docs",
+    "downloads",
+    "resources",
+    "1.x",
+    "2.x",
+    "3.x",
+    "front",
+    "salt",
+    "_layouts",
+    "_includes",
+    "Gruntfile.js",
+    "Vagrantfile",
+    "_config*",
+    "howto.md",
+    "index.html",
+    "todo.md",
+    "report.xml"
+  ]
+}
