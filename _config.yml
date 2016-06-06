@@ -15,6 +15,7 @@ exclude:
   - Vagrantfile
   - .sass-cache
   - report.xml
+  - .idea
 
 # Whether or not to include docs that are marked as preview
 includePreviews: true
@@ -26,10 +27,10 @@ kramdown:
   parse_block_html: true
 
 # All links in the design library will start with this baseurl
-baseurl: "/usptostrap-sass-gulp"
+baseurl: ""
 
 # The url for the home page of the design library
-homeurl: "/usptostrap-sass-gulp"
+homeurl: ""
 
 # Set the default layout for everything in the docs folder to _layouts/pattern.html
 defaults:
@@ -56,9 +57,9 @@ version: 1.5.0
 # The list of all versions, which are referenced on the home page
 versions:
   - name: 1.5.0
-    url: /usptostrap-sass-gulp/1.x/docs
+    url: 1.x/docs
   - name: future
-    url: /usptostrap-sass-gulp/docs
+    url: /docs
 
 # The categories for the side navigation. These correspond to the folders under the /docs folder
 doctypes:

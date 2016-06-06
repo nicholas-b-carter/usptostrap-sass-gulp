@@ -24,11 +24,14 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: ['front/scripts/{,*/}*.js'],
-                tasks: ['jshint', 'concat:mainjs', 'concat:appDemojs']
+                tasks: ['jshint', 'concat:mainjs', 'concat:appDemojs', 'bsReload']
             },
             sass: {
-                files: ['usptostrap/sass/**/*.sass', 'front/styles/**/*.sass'],
-                tasks: ['sass', 'usebanner', 'concat:maincss', 'autoprefixer']
+                files: ['usptostrap/sass/**/*.scss', 'front/styles/**/*.scss'],
+                tasks: ['sass', 'usebanner', 'concat:maincss', 'autoprefixer', 'bsReload']
+            },
+            options: {
+                spawn: false
             }
         },
 
@@ -43,7 +46,7 @@ module.exports = function (grunt) {
                         '<%= paths.downloads %>'
                     ]
                 }]
-            },
+            }
         },
 
         sasslint: {
@@ -52,7 +55,7 @@ module.exports = function (grunt) {
                 formatter: 'junit',
                 outputFile: 'report.xml'
             },
-            target: ['front/*.scss', 'usptostrap/sass/**/*.scss']
+            target: ['front/{,*/}*.scss', 'usptostrap/{,*/}*.scss']
         },
 
         // Lint JS
@@ -266,7 +269,38 @@ module.exports = function (grunt) {
                 options : {
                     config: '_config_release.yml'
                 }
+            },
+            serve: {                            // Another target
+                options: {
+                    serve: true,
+                    watch: true
+                }
             }
+        },
+
+
+        // Browsersync settings
+        browserSync: {
+            files: {
+                src : ['_site/{,*/}*.*']
+            },
+            options: {
+                watchTask: true,
+                ghostMode: {
+                    clicks: true,
+                    scroll: true,
+                    links: true,
+                    forms: true
+                },
+                server: {
+                    baseDir: '_site/'
+                },
+                background: true
+            }
+        },
+
+        bsReload: {
+            reload: true
         }
     });
 
@@ -298,10 +332,7 @@ module.exports = function (grunt) {
         'zip',
         'jekyll:release',
         'copy:release'
-
     ]);
 
-    grunt.registerTask('default', [
-        'build'
-    ]);
+    grunt.registerTask('default', ['build','browserSync', 'watch', 'jekyll:serve']);
 };
